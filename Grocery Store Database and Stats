@@ -1,0 +1,19 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, aisle INTEGER, cost INTEGER);
+INSERT INTO store VALUES (1, "vacuum", 1, 2, 50);
+INSERT INTO store VALUES (2, "mop", 1, 2, 10);
+INSERT INTO store VALUES (3, "cat food", 1, 3, 20);
+INSERT INTO store VALUES (4, "dog food", 1, 3, 20);
+INSERT INTO store VALUES (5, "bird feed", 1, 3, 10);
+INSERT INTO store VALUES (6, "chocolate", 1, 4, 2);
+INSERT INTO store VALUES (7, "mints", 1, 4, 1);
+INSERT INTO store VALUES (8, "gummy worms", 1, 4, 1);
+INSERT INTO store VALUES (9, "chicken broth", 1, 5, 3);
+INSERT INTO store VALUES (10, "cambles soup", 1, 5, 2);
+INSERT INTO store VALUES (11, "beef broth", 1, 5, 3);
+INSERT INTO store VALUES (12, "vegetable broth", 1, 5, 3);
+INSERT INTO store VALUES (13, "xbox", 1, 6, 500);
+INSERT INTO store VALUES (14, "playstation", 1, 6, 550);
+INSERT INTO store VALUES (15, "iphone", 1, 7, 1000);
+
+SELECT * FROM store ORDER BY cost;
+SELECT SUM(cost) FROM store;
