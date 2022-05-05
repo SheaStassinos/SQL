@@ -1,0 +1,66 @@
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    sun_sign TEXT,
+    birthplace TEXT);
+    
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES ('ariana grande', 'cancer', 'florida');
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES ('michael jackson', 'virgo', 'indiana');
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES ('freddie mercury', 'virgo', 'tanzania');
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES ('taylor swift', 'sagittarius', 'pennsylvania');
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES ('kurt cobain', 'pisces', 'washington');
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES ('juice wrld', 'sagittarius', 'illinois');
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES ('eminem', 'libra', 'missouri');
+INSERT INTO singers (fullname, sun_sign, birthplace) VALUES
+('dolly parton', 'capricorn', 'tenessee');
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    singers_id INTEGER,
+    name TEXT);
+    
+INSERT INTO hobbies (singers_id, name) VALUES (1, 'dancing');
+INSERT INTO hobbies (singers_id, name) VALUES (2, 'basketball');
+INSERT INTO hobbies (singers_id, name) VALUES (3, 'photographer');
+INSERT INTO hobbies (singers_id, name) VALUES (4, 'cooking');
+INSERT INTO hobbies (singers_id, name) VALUES (5, 'guns');
+INSERT INTO hobbies (singers_id, name) VALUES (6, 'music');
+INSERT INTO hobbies (singers_id, name) VALUES (7, 'reading');
+INSERT INTO hobbies (singers_id, name) VALUES (8, 'dancing');
+
+CREATE TABLE genre (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    buddie_id INTEGER,
+    name TEXT);
+    
+INSERT INTO genre (buddie_id, name) VALUES (2, 'pop');
+INSERT INTO genre (buddie_id, name) VALUES (1, 'pop');
+INSERT INTO genre (buddie_id, name) VALUES (3, 'rock');
+INSERT INTO genre (buddie_id, name) VALUES (8, 'country');
+INSERT INTO genre (buddie_id, name) VALUES (6, 'rock');
+INSERT INTO genre (buddie_id, name) VALUES (5, 'rap');
+INSERT INTO genre (buddie_id, name) VALUES (7, 'rap');
+INSERT INTO genre (buddie_id, name) VALUES (4, 'country');
+
+CREATE TABLE same_genre (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    singer1_id INTEGER,
+    singer2_id INTEGER);
+    
+INSERT INTO same_genre (singer1_id, singer2_id)
+    VALUES (1,2);
+INSERT INTO same_genre (singer1_id, singer2_id)
+    VALUES (4,8);
+INSERT INTO same_genre (singer1_id, singer2_id)
+    VALUES (6,7);
+INSERT INTO same_genre (singer1_id, singer2_id)
+    VALUES (3,5);
+    
+SELECT singers.fullname AS artist, hobbies.name AS hobbie FROM hobbies
+    JOIN singers
+    ON singers.id = hobbies.id;
+    
+SELECT a.fullname, b.fullname AS same_genre FROM same_genre
+    JOIN singers a
+    ON same_genre.singer1_id = a.id
+    JOIN singers b
+    ON same_genre.singer2_id = b.id;
+    
+SELECT * FROM singers ORDER BY sun_sign;
